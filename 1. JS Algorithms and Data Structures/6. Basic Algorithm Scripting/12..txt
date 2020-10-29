@@ -1,0 +1,19 @@
+function frankenSplice(arr1, arr2, n) {
+  let arr3 = [];
+  const arr4 = [...arr2];
+
+  let tempVar = arr2.slice(n); // PART 1 of arr2
+  arr4.splice(n, tempVar.length); // PART 2 arr2  
+  arr3 = [...arr4, ...arr1, ...tempVar]; // 
+  return arr3;
+}
+
+console.log(frankenSplice([1, 2, 3], [4, 5, 6, 7, 8], 2));
+
+// Creating shallow copies (do not create new pointers)
+// Can use splice() not just to remove/replace, but to insert at given index
+// eg. splice(n, 0, ...[what you want to insert])
+
+
+// beast twitch viewer blowing my mind with one liner
+// const frankenSplice = (arr1, arr2, n) => [...arr2.slice(0, n), ...arr1, ...arr2.slice(n)];

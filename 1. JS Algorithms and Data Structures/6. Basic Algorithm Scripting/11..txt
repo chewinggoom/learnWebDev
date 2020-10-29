@@ -1,0 +1,17 @@
+const titleCase = str => {
+  let wordArr = [];
+  let lowerCaseStr = str.toLowerCase();
+  wordArr = lowerCaseStr.split(" ");
+  let capArr = wordArr.map(word => word[0].toUpperCase() + word.substring(1));
+  let lol = capArr.join(' ')
+  
+  return lol;
+}
+
+
+
+// beast twitch viewer blowing my mind with one liner
+
+// return str.split(' ').map((str)=>str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase()).join(' ');
+
+

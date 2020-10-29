@@ -1,0 +1,9 @@
+const booWho = bool => bool === true || bool === false ? true : false;
+
+console.log(booWho(1));
+
+
+// bool == true || bool == false IS DIFFERENT than bool === true || bool === false
+// BECAUSE
+// bool == true FINDS ANYTHING that is considered TRUE, whereas
+// bool === true JUST LOOKS for the SPECIFIC VALUE of 'true' 

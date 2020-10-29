@@ -1,0 +1,19 @@
+function bouncer(arr) {
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (!arr[i]) {
+      arr.splice(i, 1);
+      i -= 1;  
+    }
+  }
+
+  return arr;
+}
+
+console.log(bouncer([7, "ate", "", false, 9]));
+
+
+// const bouncer = arr => arr.filter((item) => item);
+
+//                                      returns items that have a value BECAUSE you are
+//                                      using a .filter array method
