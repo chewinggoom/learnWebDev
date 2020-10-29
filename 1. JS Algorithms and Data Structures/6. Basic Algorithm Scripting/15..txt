@@ -1,0 +1,16 @@
+function mutation(arr) {
+  let wordVal1 = arr[0];
+  let wordVal2 = arr[1];
+  let lowerVal1 = wordVal1.toLowerCase();
+  let lowerVal2 = wordVal2.toLowerCase();
+  let splitArr1 = lowerVal1.split('');
+  let splitArr2 = lowerVal2.split('');
+
+  for (let i = 0; i < splitArr2.length; i++) {
+    if (!splitArr1.includes(splitArr2[i])) {
+      return false;
+    } 
+  } 
+  return true; 
+}
+console.log(mutation(["hello", "Hey"]));
