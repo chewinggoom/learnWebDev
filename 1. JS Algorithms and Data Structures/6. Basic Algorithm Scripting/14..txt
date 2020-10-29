@@ -1,0 +1,20 @@
+const getIndexToIns = (arr, num) => {
+  let sortedArr = arr.sort((a, b) => a - b);
+  let filteredArr = sortedArr.filter(arrEle => arrEle < num);
+  filteredArr.push(num);
+  let remainingArr = sortedArr.filter(arrEle => arrEle > num);
+  let finalArr = [...filteredArr, ...remainingArr];
+  return finalArr.indexOf(num);
+}
+
+
+
+// sorts array
+// finds index value (x) greater than num (num)
+// returns index of that value - 1
+
+
+console.log(getIndexToIns([3, 10, 5, 37, 67], 50));
+
+
+// const getIndexToIns = (arr, num) => arr.sort((a, b) => a - b).filter(arrEle => arrEle < num);
