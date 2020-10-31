@@ -1,0 +1,7 @@
+const findLongestWordLength = str => str.split(' ').sort((a,b) => b.length - a.length).slice(0,1).join('').length;
+
+
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+
+// split the string into an array, sorted based on highest character length, sliced the first value (being the highest), joined it back into a string, found out length of string

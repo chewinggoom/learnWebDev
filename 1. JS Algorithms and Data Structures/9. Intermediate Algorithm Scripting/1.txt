@@ -1,0 +1,14 @@
+const sumAll = (arr, rangeArr = []) => {
+  let sortedArr = arr.sort((a,b) => b-a); // sorts array from highest to lowest
+  let firstNum = sortedArr[0]; // assigns highest to variable 1
+  let secondNum = sortedArr[1]; // assigns lowest to variable 2
+  
+  while (firstNum >= secondNum) { // 4 >= 1
+    rangeArr.push(firstNum--); // pushes 4, 3, 2, 1 into empty array
+  };
+  return rangeArr.reduce((a,b) => a + b); // returns a reduced sum
+}
+
+
+console.log(sumAll([1, 4]));
+

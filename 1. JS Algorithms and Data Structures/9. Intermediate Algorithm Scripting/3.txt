@@ -1,0 +1,15 @@
+function destroyer (arr) {
+  let argumentsArr = [];
+  for (let i = 1; i < arguments.length; i++) { // i starts at 1 to exclude the array arg
+    argumentsArr.push(arguments[i]);   // pushes additional args into argumentsArr
+  } 
+  return arr.filter((element) => !(argumentsArr.includes(element)));    // displays all values are NOT contained inside argumentsArr
+  
+}
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+
+
+// Found some clashes with using arguments object inside of an arrow function
+// Found some clashes while working with a default parameter in this function
