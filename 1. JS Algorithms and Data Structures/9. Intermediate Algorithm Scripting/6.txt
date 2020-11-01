@@ -1,0 +1,30 @@
+function translatePigLatin(str) {
+    let splitArr = str.split('');
+    let vowel = ["a","e","i","o","u"];
+    let counter = 0;
+  
+
+    for (let i = 0; i < vowel.length; i++) {         // checks for vowels, increments counter if so
+        if ((splitArr.includes(vowel[i]))) {
+           counter++;
+        } 
+    }
+
+    if (counter == 0) {                           // if no vowels (counter == 0), add 'ay' to the end 
+        return str + 'ay'
+    }
+
+    if (vowel.includes(splitArr[0])) {          // if first character is vowel, add "way" to the end 
+        console.log('first char is vowel')
+        return str + 'way';   
+    }
+
+    
+    for (let i = 0; i < splitArr.length; i++) {     // when loop hits a vowel, slices from index - end, THEN from beginning t o index, then appends "ay"
+        if (vowel.includes(splitArr[i])) {
+            return [...str.slice(splitArr.indexOf(splitArr[i])), ...str.slice(0, splitArr.indexOf(splitArr[i])), ..."ay"].join('');
+        }    
+    }
+}
+    
+console.log(translatePigLatin("glove"));

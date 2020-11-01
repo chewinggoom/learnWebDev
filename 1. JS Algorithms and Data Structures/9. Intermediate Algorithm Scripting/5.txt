@@ -1,0 +1,21 @@
+function spinalCase(str) {
+
+    let splitStr = [];
+    splitStr = str.split('');
+    for (let i = 1; i < splitStr.length; i++) {
+        if (!(/[a-zA-Z]/).test(splitStr[i])) { // replaces non-alpabetic characters with a space -> " "
+            splitStr.splice(i,1," ");
+        }
+    }
+
+    for (let i = 1; i < splitStr.length; i++) {
+        if ((/[A-Z]/).test(splitStr[i])) {
+            splitStr.splice(i,0," ");
+            i+=1;
+        }
+    }
+
+    return splitStr.join('').split(' ').filter(char => char != '').join('-').toLowerCase();
+}
+
+console.log(spinalCase("AllThe-small Things"))
