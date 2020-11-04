@@ -1,0 +1,31 @@
+function whatIsInAName(collection, source) {
+  let arr = [];
+  let arr2 = [];
+  let sourceKeys = [];
+  let sourceValues = [];
+  // Only change code below this line
+  //return Object.getOwnPropertyNames(source);
+  // collection argument is an Array of Objects, so each object can be selected using bracket notation collection[2]
+
+  arr = [...Object.getOwnPropertyNames(source), ...Object.values(source)]
+
+  sourceKeys = [...Object.getOwnPropertyNames(source)];
+  sourceValues = [...Object.values(source)];
+
+  for (let i = 0; i < collection.length; i++) {
+    debugger;
+    for (let j = 0; j < sourceKeys.length; j++) {
+      debugger;
+      for (let k = 0; k < sourceValues.length; k++) {
+        debugger;
+        if (collection[i][sourceKeys[j]] == sourceValues[k]) {
+          arr2.push(collection[i])
+          debugger;
+        } 
+      }
+    }
+  }
+  return arr2;
+}
+
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }));
