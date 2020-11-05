@@ -1,0 +1,27 @@
+function convertHTML(str) {
+  let dictionary = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"' : '&quot;',
+    "'": '&apos;'
+    }
+
+  let dictionaryKeys = Object.keys(dictionary);
+  let splitArr = str.split('');
+   for (let i = 0; i < splitArr.length; i++) {
+     if (dictionaryKeys.includes(splitArr[i])) {
+       splitArr.splice(i, 1, dictionary[splitArr[i]])
+     } 
+   }
+  return splitArr.join('');
+}
+
+console.log(convertHTML("Dolce & Gabba & na"));
+
+
+  // let splitArr = str.split('');
+  // let foundChar =  splitArr.filter(char => {
+  //   return Object.keys(dictionary).map(key => char === key).reduce((acc) => acc)
+  // }).join();
+  // return foundChar;
