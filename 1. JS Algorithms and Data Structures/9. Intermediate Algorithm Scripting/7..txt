@@ -1,0 +1,25 @@
+function myReplace(str, before, after) {
+  let originalSplit = str.split(' ');     // split copy 1
+  let splitArr = str.split(' ');          // split copy 2
+  let beforeIndex = splitArr.indexOf(before);  // checks if value inside split copy 2 exists
+  let newArr;     // variable that is constantly updated as it passes through conditions
+
+  if (beforeIndex > 0) {     // condition 1: if there is a match
+    splitArr.splice(beforeIndex,1,after).join(' ');
+    newArr = splitArr;
+  } 
+  if (beforeIndex > 0 && originalSplit[beforeIndex][0] === originalSplit[beforeIndex][0].toUpperCase()) { // condition 2: match exists AND first letter of matched word is upper
+    newArr.splice(beforeIndex, 1, (after[0].toUpperCase() + after.slice(1)));
+  } 
+
+  if (beforeIndex > 0 && after[0] === after[0].toUpperCase()) {   // condition 3: match exists and first letter of substitute word is lower
+    newArr.splice(beforeIndex, 1, (after[0].toLowerCase() + after.slice(1)))
+  }
+
+  if (beforeIndex < 0) {      // condition 4: no match
+    return "No match"
+  }
+  return newArr.join(' ');
+}
+
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "Leaped"));

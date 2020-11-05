@@ -1,0 +1,26 @@
+function pairElement(str) {
+  let carry = [];
+  let basePair1 = ['A', 'T'];
+  let basePair2 = ['C', 'G'];
+
+  let doubleArr = str.split('').map(letter => [letter]); // splits string and encloses every letter inside square braces
+
+  for (let i = 0; i < doubleArr.length; i++) {              // loop to enter outer array
+    for (let j = 0; j < doubleArr[i].length; j++) {         // loop to enter inner array
+      if (basePair1.includes(doubleArr[i][j])) {    // if basePair1 includes value of doubleArr value, push any value that is NOT current value
+        doubleArr[i].push(basePair1.filter(ele => ele != doubleArr[i][j]))
+      }
+
+      if (basePair2.includes(doubleArr[i][j])) {   // if basePair2 includes value of doubleArr value, push any value that is NOT current value
+        doubleArr[i].push(basePair2.filter(ele => ele!= doubleArr[i][j]))
+      }
+    }
+  }
+  let newArr = doubleArr.join('').split(/[^A-Z]/).join('').split(''); // fuckin lazy reformatting, splits letters individually
+  while (newArr.length > 0) {               // splices by 2 into new array
+    carry.push(newArr.splice(0,2))
+  }
+  return carry;
+}
+
+console.log(pairElement("ATCGA"));
