@@ -1,0 +1,8 @@
+function uniteUnique(...args) {
+  let test1 = args.join('').split(/[^0-9]/).join('').split('')
+  return test1.filter((element, index) => test1.indexOf(element) === index).map(ele => parseInt(ele))
+}
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+
+

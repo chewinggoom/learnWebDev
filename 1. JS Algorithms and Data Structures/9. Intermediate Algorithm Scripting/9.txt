@@ -1,0 +1,18 @@
+function fearNotLetter(str) {
+  let alphabet = "abcdefghijklmnopqrstuvwxyz"
+  let stringLength = str.length;
+  let alphabetSlice = alphabet.slice(alphabet.indexOf(str[0]), (alphabet.indexOf(str[0]) + stringLength));
+  
+  if (str === alphabet) {
+    return undefined
+  }
+
+  return alphabetSlice.split('').filter(ele => !str.split('').includes(ele)).join();
+
+}
+
+console.log(fearNotLetter("abcdefghjklmno"));
+
+// find the length of the string
+// slices off alphabet from str's first character onwards using str's length
+// compares sliced alphabet and str, returns difference
