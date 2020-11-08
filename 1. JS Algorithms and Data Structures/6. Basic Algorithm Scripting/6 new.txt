@@ -1,0 +1,4 @@
+const confirmEnding = (str, target) => str.slice((str.length - target.length)) === target ? true : false;
+
+
+console.log(confirmEnding("Bastian", "afn"));
