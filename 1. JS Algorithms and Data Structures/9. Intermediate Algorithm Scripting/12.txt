@@ -1,0 +1,28 @@
+function sumFibs(num) {
+  let fibo1 = 1;
+  let fibo2 = 1;
+  let fibArr = [1,1];
+  let counter = 0;
+  debugger;
+  while (counter != 1) {
+    if (fibArr.filter(ele => ele % 2 == 1).reduce((acc, cur) => acc + cur) <= num) {
+      fibo1 = fibo1 + fibo2;
+      fibArr.push(fibo1)
+    } 
+    if (fibArr.filter(ele => ele % 2 == 1).reduce((acc, cur) => acc + cur) <= num) {
+      fibo2 = fibo1 + fibo2;
+      fibArr.push(fibo2);
+    }
+    if (fibArr.filter(ele => ele % 2 == 1).reduce((acc, cur) => acc + cur) >= num) {
+      counter = 1;
+    }
+    if(fibArr[fibArr.length - 1] > num) {
+      fibArr.pop();
+      counter = 1;
+    }
+  }
+  return fibArr.filter(ele => ele % 2 == 1).reduce((acc, cur) => acc + cur);
+  
+}
+console.log(sumFibs(75024));
+

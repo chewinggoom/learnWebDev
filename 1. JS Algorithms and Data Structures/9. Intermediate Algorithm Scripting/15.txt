@@ -1,0 +1,11 @@
+function dropElements(arr, func) {
+  let afterFirstCondition = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (func(arr[i])) {
+      afterFirstCondition = arr.slice((arr.indexOf(arr[i])));
+      return afterFirstCondition;
+    } 
+  } return [];
+}
+
+console.log(dropElements([9, 2, 3, 7, 2], function(n) {return n > 10; }));

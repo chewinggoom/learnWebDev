@@ -1,0 +1,30 @@
+const sumPrimes = maxNum => {
+    let primeArr = [];
+
+    const isThisPrime = counterNum => {      // function that checks if input is a prime number
+        let counterNumArr = [];             // will hold an array from numbers 1 -> counterNum
+        let returnedDividerArr;         // will hold array of numbers that will show whole numbered divisors of maxNum (eg. 10 = [1,2,5,10])
+    
+        for (let i = 1; i <= counterNum; i++) {         // creates an array from numbers 1 -> counterNum, uses this array to check if the number being passed
+            if (counterNumArr.length < counterNum) {    // into this function is a prime number
+                counterNumArr.push(i)
+            }
+        }
+                            // eg. [1,2,3,4,5].map -> [ 5, 2.5, 1.6666666666666667, 1.25, 1 ] -> returnedDividerArr = [5,1]
+        returnedDividerArr = counterNumArr.map(number => counterNum / number).filter(numbers => numbers % parseInt(numbers) === 0)
+        if (returnedDividerArr.length > 2) {  // if there are more than two values inside returnedDividerArr, IT IS NOT PRIME
+            return false;
+        } else {
+            primeArr.push(counterNum);         // PUSH THE MOTHER FUCKIN PRIME INTO THE MOTHER FUCKIN PRIMEARRAY
+        }
+        
+    }
+    for (let counter = 2; counter <= maxNum; counter++) {           // where the program starts
+        if (primeArr.length < maxNum) {
+            isThisPrime(counter)                       // This loop will continue until the counter reaches the input number, because it has to check if the
+        }                                              // numbers from 2 -> maxNum are prime numbers
+    }
+    return primeArr.reduce((acc, cur) => acc + cur)     // returns the total of pushed prime numbers
+
+}
+console.log(sumPrimes(100))
